@@ -1,7 +1,7 @@
 /* App styles: semantic tokens from design/tokens.css, plus the component layer.
    Components consume those tokens; Tailwind supplies layout utilities. */
 
-@import '../../../design/tokens.css';
+@import './tokens.css';
 @import 'tailwindcss';
 @import './ui/shell/app-shell.css';
 
