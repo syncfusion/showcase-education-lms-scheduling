@@ -1,0 +1,212 @@
+{
+  "fixtureVersion": 1,
+  "termName": "Fall Term",
+  "termWeeks": 12,
+  "courses": [
+    { "id": "course-cs101", "code": "CS-101", "title": "Introduction to Programming", "track": "Software Engineering", "instructorId": "inst-1", "roomId": "room-b104", "enrolled": 52, "capacity": 60, "status": "active" },
+    { "id": "course-ds201", "code": "DS-201", "title": "Data Analysis Foundations", "track": "Data Science", "instructorId": "inst-2", "roomId": "room-a201", "enrolled": 58, "capacity": 60, "status": "active" },
+    { "id": "course-cy320", "code": "CY-320", "title": "Network Security Essentials", "track": "Cybersecurity", "instructorId": "inst-3", "roomId": "room-c110", "enrolled": 38, "capacity": 60, "status": "active" },
+    { "id": "course-cl240", "code": "CL-240", "title": "Cloud Fundamentals with DevOps", "track": "Cloud & DevOps", "instructorId": "inst-4", "roomId": "room-d205", "enrolled": 47, "capacity": 60, "status": "active" },
+    { "id": "course-se310", "code": "SE-310", "title": "Applied Software Architecture", "track": "Software Engineering", "instructorId": "inst-1", "roomId": "room-b104", "enrolled": 60, "capacity": 60, "status": "active" },
+    { "id": "course-ds420", "code": "DS-420", "title": "Machine Learning in Practice", "track": "Data Science", "instructorId": "inst-2", "roomId": "room-a201", "enrolled": 57, "capacity": 60, "status": "active" }
+  ],
+  "rooms": [
+    { "id": "room-a201", "name": "Lecture Hall A-201", "capacity": 60 },
+    { "id": "room-b104", "name": "Lab Room B-104", "capacity": 40 },
+    { "id": "room-c110", "name": "Seminar Room C-110", "capacity": 30 },
+    { "id": "room-d205", "name": "Lecture Hall D-205", "capacity": 60 }
+  ],
+  "instructors": [
+    { "id": "inst-1", "name": "Dr. Elena Vasquez", "role": "Professor" },
+    { "id": "inst-2", "name": "Prof. Marcus Chen", "role": "Associate Professor" },
+    { "id": "inst-3", "name": "Dr. Priya Natarajan", "role": "Assistant Professor" },
+    { "id": "inst-4", "name": "Mr. Tom Okafor", "role": "Lecturer" }
+  ],
+  "sessions": [
+    { "id": "session-1", "courseId": "course-cs101", "subject": "CS-101 Lecture", "type": "lecture", "weekday": 1, "startMinutes": 540, "durationMinutes": 90, "roomId": "room-a201", "instructorId": "inst-1", "weekStartOffset": 0, "tags": ["intro"] },
+    { "id": "session-2", "courseId": "course-cs101", "subject": "CS-101 Lab", "type": "lab", "weekday": 2, "startMinutes": 600, "durationMinutes": 120, "roomId": "room-b104", "instructorId": "inst-1", "weekStartOffset": 0, "tags": ["lab"] },
+    { "id": "session-3", "courseId": "course-ds201", "subject": "DS-201 Lecture", "type": "lecture", "weekday": 1, "startMinutes": 630, "durationMinutes": 90, "roomId": "room-d205", "instructorId": "inst-2", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-4", "courseId": "course-cy320", "subject": "CY-320 Seminar", "type": "seminar", "weekday": 3, "startMinutes": 660, "durationMinutes": 60, "roomId": "room-c110", "instructorId": "inst-3", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-5", "courseId": "course-cl240", "subject": "CL-240 Lecture", "type": "lecture", "weekday": 4, "startMinutes": 600, "durationMinutes": 90, "roomId": "room-d205", "instructorId": "inst-4", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-6", "courseId": "course-se310", "subject": "SE-310 Workshop", "type": "lecture", "weekday": 2, "startMinutes": 600, "durationMinutes": 120, "roomId": "room-b104", "instructorId": "inst-1", "weekStartOffset": 0, "tags": ["conflict"] },
+    { "id": "session-7", "courseId": "course-ds420", "subject": "DS-420 Lab", "type": "lab", "weekday": 5, "startMinutes": 540, "durationMinutes": 180, "roomId": "room-b104", "instructorId": "inst-2", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-8", "courseId": "course-ds201", "subject": "DS-201 Lab", "type": "lab", "weekday": 4, "startMinutes": 840, "durationMinutes": 120, "roomId": "room-b104", "instructorId": "inst-2", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-9", "courseId": "course-cs101", "subject": "CS-101 Office Hours", "type": "office-hours", "weekday": 5, "startMinutes": 900, "durationMinutes": 60, "roomId": "room-c110", "instructorId": "inst-1", "weekStartOffset": 0, "tags": [] },
+    { "id": "session-10", "courseId": "course-cy320", "subject": "CY-320 Lab", "type": "lab", "weekday": 2, "startMinutes": 840, "durationMinutes": 120, "roomId": "room-b104", "instructorId": "inst-3", "weekStartOffset": 0, "tags": [] }
+  ],
+  "students": [
+    { "id": "student-1", "name": "Amelia Meyer", "email": "amelia.meyer@example.edu", "track": "Data Science", "courseIds": ["course-cs101", "course-ds201"], "attendancePct": 91.2, "completionPct": 88, "grade": "A", "status": "enrolled" },
+    { "id": "student-2", "name": "Benjamin Osei", "email": "benjamin.osei@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320", "course-cl240"], "attendancePct": 74.0, "completionPct": 66, "grade": "C", "status": "enrolled" },
+    { "id": "student-3", "name": "Chiara Ivanova", "email": "chiara.ivanova@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240"], "attendancePct": 68.5, "completionPct": 58, "grade": "D", "status": "enrolled" },
+    { "id": "student-4", "name": "Daan de Vries", "email": "daan.devries@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101", "course-se310"], "attendancePct": 93.8, "completionPct": 91, "grade": "A", "status": "enrolled" },
+    { "id": "student-5", "name": "Emeka Nwosu", "email": "emeka.nwosu@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101"], "attendancePct": 61.4, "completionPct": 52, "grade": "D", "status": "enrolled" },
+    { "id": "student-6", "name": "Farah Haddad", "email": "farah.haddad@example.edu", "track": "Data Science", "courseIds": ["course-ds201", "course-ds420"], "attendancePct": 90.1, "completionPct": 86, "grade": "A", "status": "enrolled" },
+    { "id": "student-7", "name": "Gabriel Santos", "email": "gabriel.santos@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320"], "attendancePct": 78.9, "completionPct": 71, "grade": "B", "status": "enrolled" },
+    { "id": "student-8", "name": "Hana Kim", "email": "hana.kim@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240", "course-se310"], "attendancePct": 85.6, "completionPct": 82, "grade": "B", "status": "enrolled" },
+    { "id": "student-9", "name": "Igor Petrov", "email": "igor.petrov@example.edu", "track": "Software Engineering", "courseIds": ["course-se310"], "attendancePct": 79.4, "completionPct": 69, "grade": "C", "status": "enrolled" },
+    { "id": "student-10", "name": "Julia Fernandes", "email": "julia.fernandes@example.edu", "track": "Data Science", "courseIds": ["course-ds420"], "attendancePct": 65.3, "completionPct": 56, "grade": "D", "status": "enrolled" },
+    { "id": "student-11", "name": "Kwame Mensah", "email": "kwame.mensah@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320", "course-cs101"], "attendancePct": 96.2, "completionPct": 93, "grade": "A", "status": "enrolled" },
+    { "id": "student-12", "name": "Ling Wei", "email": "ling.wei@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240"], "attendancePct": 71.2, "completionPct": 64, "grade": "C", "status": "enrolled" },
+    { "id": "student-13", "name": "Mateo Alvarez", "email": "mateo.alvarez@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101", "course-se310"], "attendancePct": 80.7, "completionPct": 74, "grade": "B", "status": "enrolled" },
+    { "id": "student-14", "name": "Nadia Rahman", "email": "nadia.rahman@example.edu", "track": "Data Science", "courseIds": ["course-ds201"], "attendancePct": 83.0, "completionPct": 77, "grade": "B", "status": "enrolled" },
+    { "id": "student-15", "name": "Oluwaseun Adeyemi", "email": "oluwaseun.adeyemi@example.edu", "track": "Software Engineering", "courseIds": ["course-se310", "course-cl240"], "attendancePct": 68.0, "completionPct": 61, "grade": "D", "status": "enrolled" },
+    { "id": "student-16", "name": "Priti Shah", "email": "priti.shah@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320"], "attendancePct": 82.4, "completionPct": 79, "grade": "B", "status": "enrolled" },
+    { "id": "student-17", "name": "Quentin Lefevre", "email": "quentin.lefevre@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240", "course-ds201"], "attendancePct": 77.1, "completionPct": 70, "grade": "C", "status": "enrolled" },
+    { "id": "student-18", "name": "Rosa Delgado", "email": "rosa.delgado@example.edu", "track": "Data Science", "courseIds": ["course-ds420", "course-ds201"], "attendancePct": 89.3, "completionPct": 85, "grade": "A", "status": "enrolled" },
+    { "id": "student-19", "name": "Sven Johansson", "email": "sven.johansson@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101"], "attendancePct": 66.7, "completionPct": 59, "grade": "D", "status": "enrolled" },
+    { "id": "student-20", "name": "Tara O'Connell", "email": "tara.oconnell@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320", "course-se310"], "attendancePct": 84.8, "completionPct": 81, "grade": "B", "status": "enrolled" },
+    { "id": "student-21", "name": "Umar Farooq", "email": "umar.farooq@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240"], "attendancePct": 88.9, "completionPct": 83, "grade": "B", "status": "enrolled" },
+    { "id": "student-22", "name": "Vera Kuznetsova", "email": "vera.kuznetsova@example.edu", "track": "Data Science", "courseIds": ["course-ds201", "course-ds420"], "attendancePct": 73.6, "completionPct": 67, "grade": "C", "status": "enrolled" },
+    { "id": "student-23", "name": "William Tan", "email": "william.tan@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101", "course-cl240"], "attendancePct": 94.1, "completionPct": 90, "grade": "A", "status": "enrolled" },
+    { "id": "student-24", "name": "Xu Ran", "email": "xu.ran@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320", "course-ds420"], "attendancePct": 85.0, "completionPct": 83, "grade": "B", "status": "enrolled" },
+    { "id": "student-25", "name": "Yara Nasser", "email": "yara.nasser@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240", "course-cy320"], "attendancePct": 74.5, "completionPct": 68, "grade": "C", "status": "enrolled" },
+    { "id": "student-26", "name": "Zoran Ilic", "email": "zoran.ilic@example.edu", "track": "Software Engineering", "courseIds": ["course-se310"], "attendancePct": 92.5, "completionPct": 89, "grade": "A", "status": "enrolled" },
+    { "id": "student-27", "name": "Ana Lucia Ferreira", "email": "ana.ferreira@example.edu", "track": "Data Science", "courseIds": ["course-ds201"], "attendancePct": 87.2, "completionPct": 84, "grade": "B", "status": "enrolled" },
+    { "id": "student-28", "name": "Bastien Moreau", "email": "bastien.moreau@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320"], "attendancePct": 63.8, "completionPct": 55, "grade": "D", "status": "enrolled" },
+    { "id": "student-29", "name": "Ceyda Yilmaz", "email": "ceyda.yilmaz@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240", "course-se310"], "attendancePct": 81.9, "completionPct": 75, "grade": "B", "status": "enrolled" },
+    { "id": "student-30", "name": "Dmitri Volkov", "email": "dmitri.volkov@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101"], "attendancePct": 78.3, "completionPct": 72, "grade": "C", "status": "enrolled" },
+    { "id": "student-31", "name": "Enamel Hailu", "email": "enamel.hailu@example.edu", "track": "Data Science", "courseIds": ["course-ds420"], "attendancePct": 69.9, "completionPct": 62, "grade": "D", "status": "enrolled" },
+    { "id": "student-32", "name": "Filip Novak", "email": "filip.novak@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320", "course-cl240"], "attendancePct": 86.7, "completionPct": 80, "grade": "B", "status": "enrolled" },
+    { "id": "student-33", "name": "Grace Mbeki", "email": "grace.mbeki@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240"], "attendancePct": 97.0, "completionPct": 94, "grade": "A", "status": "enrolled" },
+    { "id": "student-34", "name": "Henrik Olsen", "email": "henrik.olsen@example.edu", "track": "Software Engineering", "courseIds": ["course-se310", "course-cy320"], "attendancePct": 70.5, "completionPct": 63, "grade": "C", "status": "enrolled" },
+    { "id": "student-35", "name": "Ines Dominguez", "email": "ines.dominguez@example.edu", "track": "Data Science", "courseIds": ["course-ds201", "course-cs101"], "attendancePct": 90.3, "completionPct": 87, "grade": "A", "status": "enrolled" },
+    { "id": "student-36", "name": "Jonas Weber", "email": "jonas.weber@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320"], "attendancePct": 76.2, "completionPct": 69, "grade": "C", "status": "enrolled" },
+    { "id": "student-37", "name": "Keiko Tanaka", "email": "keiko.tanaka@example.edu", "track": "Cloud & DevOps", "courseIds": ["course-cl240", "course-ds201"], "attendancePct": 88.1, "completionPct": 82, "grade": "B", "status": "enrolled" },
+    { "id": "student-38", "name": "Laszlo Horvath", "email": "laszlo.horvath@example.edu", "track": "Software Engineering", "courseIds": ["course-cs101"], "attendancePct": 84.9, "completionPct": 78, "grade": "B", "status": "enrolled" },
+    { "id": "student-39", "name": "Maya Rosen", "email": "maya.rosen@example.edu", "track": "Data Science", "courseIds": ["course-ds420"], "attendancePct": 82.7, "completionPct": 76, "grade": "B", "status": "withdrawn" },
+    { "id": "student-40", "name": "Noah Bergstrom", "email": "noah.bergstrom@example.edu", "track": "Cybersecurity", "courseIds": ["course-cy320"], "attendancePct": 95.5, "completionPct": 92, "grade": "A", "status": "enrolled" }
+  ],
+  "planTasks": [
+    { "id": "task-w1-found", "parentId": null, "name": "Week 1 — Foundations", "startOffsetDays": 0, "durationDays": 7, "progress": 100, "baselineStartOffsetDays": 0, "baselineEndOffsetDays": 7, "isMilestone": false, "courseId": "course-cs101" },
+    { "id": "task-w2-data", "parentId": null, "name": "Week 2 — Data & Types", "startOffsetDays": 7, "durationDays": 7, "progress": 100, "baselineStartOffsetDays": 7, "baselineEndOffsetDays": 14, "isMilestone": false, "courseId": "course-cs101" },
+    { "id": "task-w3-logic", "parentId": null, "name": "Week 3 — Logic & Control", "startOffsetDays": 14, "durationDays": 7, "progress": 55, "baselineStartOffsetDays": 14, "baselineEndOffsetDays": 21, "isMilestone": false, "courseId": "course-cs101" },
+    { "id": "task-w4-func", "parentId": null, "name": "Week 4 — Functions", "startOffsetDays": 21, "durationDays": 7, "progress": 10, "baselineStartOffsetDays": 21, "baselineEndOffsetDays": 28, "isMilestone": false, "courseId": "course-cs101", "predecessor": { "id": "task-w3-logic", "type": "FS" } },
+    { "id": "task-w5-arrays", "parentId": null, "name": "Week 5 — Collections", "startOffsetDays": 28, "durationDays": 7, "progress": 0, "baselineStartOffsetDays": 28, "baselineEndOffsetDays": 35, "isMilestone": false, "courseId": "course-cs101", "predecessor": { "id": "task-w4-func", "type": "SS" } },
+    { "id": "task-w6-proj", "parentId": null, "name": "Week 6 — Project Milestone", "startOffsetDays": 42, "durationDays": 7, "progress": 0, "baselineStartOffsetDays": 42, "baselineEndOffsetDays": 49, "isMilestone": true, "courseId": "course-cs101", "predecessor": { "id": "task-w5-arrays", "type": "FS" } },
+    { "id": "task-ds-w1", "parentId": null, "name": "DS — Statistics Primer", "startOffsetDays": 0, "durationDays": 14, "progress": 95, "baselineStartOffsetDays": 0, "baselineEndOffsetDays": 14, "isMilestone": false, "courseId": "course-ds201" },
+    { "id": "task-ds-w3", "parentId": null, "name": "DS — Visualization", "startOffsetDays": 14, "durationDays": 14, "progress": 60, "baselineStartOffsetDays": 14, "baselineEndOffsetDays": 28, "isMilestone": false, "courseId": "course-ds201" },
+    { "id": "task-cy-w1", "parentId": null, "name": "CY — Threat Landscape", "startOffsetDays": 0, "durationDays": 21, "progress": 80, "baselineStartOffsetDays": 0, "baselineEndOffsetDays": 21, "isMilestone": false, "courseId": "course-cy320" },
+    { "id": "task-cl-w1", "parentId": null, "name": "CL — Cloud Core Services", "startOffsetDays": 0, "durationDays": 21, "progress": 70, "baselineStartOffsetDays": 0, "baselineEndOffsetDays": 21, "isMilestone": false, "courseId": "course-cl240" }
+  ],
+  "assignments": [
+    { "id": "assign-1", "courseId": "course-cs101", "title": "Programming Basics Quiz", "dueWeekOffset": 2, "submissions": 50, "expected": 52, "avgScore": 82 },
+    { "id": "assign-2", "courseId": "course-cs101", "title": "Lab Notebook 1", "dueWeekOffset": 3, "submissions": 44, "expected": 52, "avgScore": 76 },
+    { "id": "assign-3", "courseId": "course-ds201", "title": "Dataset Exploration Report", "dueWeekOffset": 3, "submissions": 55, "expected": 58, "avgScore": 81 },
+    { "id": "assign-4", "courseId": "course-cy320", "title": "Threat Model Exercise", "dueWeekOffset": 4, "submissions": 30, "expected": 38, "avgScore": null },
+    { "id": "assign-5", "courseId": "course-cl240", "title": "Cloud Cost Exercise", "dueWeekOffset": 4, "submissions": 42, "expected": 47, "avgScore": 74 }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-1", "courseId": "course-cs101", "title": "Lesson 1 — Getting Started", "status": "published",
+      "html": "<h2>Getting Started</h2><p>Welcome to CS-101. This week covers course logistics, tooling setup, and your first program.</p><ul><li>Install the toolchain</li><li>Read the syllabus</li><li>Write hello-world</li></ul>"
+    },
+    {
+      "id": "lesson-2", "courseId": "course-cs101", "title": "Lesson 2 — Values and Types", "status": "published",
+      "html": "<h2>Values and Types</h2><p>Numbers, strings, and booleans — the atoms of every program.</p><p><em>Reading:</em> chapter 2, sections 1–3.</p>"
+    },
+    {
+      "id": "lesson-3", "courseId": "course-cs101", "title": "Lesson 3 — Data &amp; Types", "status": "draft",
+      "html": "<h2>Data &amp; Types</h2><p>Draft in progress: structured data, mutation, and references.</p><p><strong>TODO:</strong> add worked examples before publishing.</p>"
+    },
+    {
+      "id": "lesson-4", "courseId": "course-ds201", "title": "Lesson 1 — Asking Questions of Data", "status": "published",
+      "html": "<h2>Asking Questions of Data</h2><p>Framing measurable questions and recognizing the shape of an answer.</p>"
+    }
+  ],
+  "files": {
+    "id": "root", "name": "Materials", "type": "folder", "modifiedOffsetDays": 0, "children": [
+      { "id": "f-cs101", "name": "CS-101", "type": "folder", "modifiedOffsetDays": 19, "children": [
+      { "id": "f-syllabus", "name": "Syllabus", "type": "folder", "modifiedOffsetDays": 1, "children": [
+        { "id": "f-syl-outline", "name": "cs101-course-outline.pptx", "type": "file", "sizeBytes": 1843200, "modifiedOffsetDays": 0 },
+        { "id": "f-syl-calendar", "name": "cs101-week-calendar.png", "type": "file", "sizeBytes": 428000, "modifiedOffsetDays": 2 }
+      ] },
+      { "id": "f-notes", "name": "Lecture Notes", "type": "folder", "modifiedOffsetDays": 4, "children": [
+        { "id": "f-mod1", "name": "Module 1", "type": "folder", "modifiedOffsetDays": 5, "children": [
+          { "id": "f-mod1-deck", "name": "module1-values-and-types.pptx", "type": "file", "sizeBytes": 3145728, "modifiedOffsetDays": 5 },
+          { "id": "f-mod1-shot", "name": "module1-workspace.jpeg", "type": "file", "sizeBytes": 1258291, "modifiedOffsetDays": 6 }
+        ] },
+        { "id": "f-mod2", "name": "Module 2", "type": "folder", "modifiedOffsetDays": 12, "children": [
+          { "id": "f-mod2-deck", "name": "module2-control-flow.pptx", "type": "file", "sizeBytes": 2764800, "modifiedOffsetDays": 12 },
+          { "id": "f-mod2-table", "name": "module2-boolean-table.png", "type": "file", "sizeBytes": 548000, "modifiedOffsetDays": 13 }
+        ] }
+      ] },
+      { "id": "f-assignments", "name": "Assignments", "type": "folder", "modifiedOffsetDays": 8, "children": [
+        { "id": "f-asg1", "name": "assignment1-hello-world.pptx", "type": "file", "sizeBytes": 983040, "modifiedOffsetDays": 8 },
+        { "id": "f-asg2", "name": "assignment2-types-worksheet.png", "type": "file", "sizeBytes": 312000, "modifiedOffsetDays": 15 }
+      ] },
+      { "id": "f-labs", "name": "Lab Manuals", "type": "folder", "modifiedOffsetDays": 3, "children": [
+        { "id": "f-lab1-deck", "name": "lab1-toolchain.pptx", "type": "file", "sizeBytes": 1572864, "modifiedOffsetDays": 3 },
+        { "id": "f-lab1-shot", "name": "lab1-setup.png", "type": "file", "sizeBytes": 655360, "modifiedOffsetDays": 4 },
+        { "id": "f-lab2-shot", "name": "lab2-debugger.jpeg", "type": "file", "sizeBytes": 901120, "modifiedOffsetDays": 9 }
+      ] },
+      { "id": "f-recordings", "name": "Recordings", "type": "folder", "modifiedOffsetDays": 7, "children": [
+        { "id": "f-rec-m1", "name": "lecture-module1.mp4", "type": "file", "sizeBytes": 48600000, "modifiedOffsetDays": 7 },
+        { "id": "f-rec-m2", "name": "lecture-module2.mp4", "type": "file", "sizeBytes": 51200000, "modifiedOffsetDays": 16 },
+        { "id": "f-rec-lab", "name": "lab1-walkthrough.mp4", "type": "file", "sizeBytes": 22800000, "modifiedOffsetDays": 10 }
+      ] },
+      { "id": "f-reference", "name": "Reference Materials", "type": "folder", "modifiedOffsetDays": 14, "children": [
+        { "id": "f-ref-ascii", "name": "ascii-table.png", "type": "file", "sizeBytes": 210000, "modifiedOffsetDays": 1 },
+        { "id": "f-ref-ide", "name": "ide-layout.jpeg", "type": "file", "sizeBytes": 745000, "modifiedOffsetDays": 14 },
+        { "id": "f-ref-style", "name": "style-guide-slides.pptx", "type": "file", "sizeBytes": 2201600, "modifiedOffsetDays": 18 }
+      ] }
+      ] },
+      { "id": "f-ds201", "name": "DS-201", "type": "folder", "modifiedOffsetDays": 20, "children": [
+        { "id": "f-ds-syllabus", "name": "DS-201 Syllabus", "type": "folder", "modifiedOffsetDays": 21, "children": [
+          { "id": "f-ds-outline", "name": "ds201-course-outline.pptx", "type": "file", "sizeBytes": 1640000, "modifiedOffsetDays": 22 }
+        ] },
+        { "id": "f-ds-notes", "name": "DS-201 Lecture Notes", "type": "folder", "modifiedOffsetDays": 23, "children": [
+          { "id": "f-ds-primer", "name": "statistics-primer.pptx", "type": "file", "sizeBytes": 2480000, "modifiedOffsetDays": 24 },
+          { "id": "f-ds-viz", "name": "visualization-chart.png", "type": "file", "sizeBytes": 486000, "modifiedOffsetDays": 25 }
+        ] },
+        { "id": "f-ds-assignments", "name": "DS-201 Assignments", "type": "folder", "modifiedOffsetDays": 26, "children": [
+          { "id": "f-ds-explore", "name": "dataset-exploration.pptx", "type": "file", "sizeBytes": 980000, "modifiedOffsetDays": 27 }
+        ] },
+        { "id": "f-ds-labs", "name": "DS-201 Lab Manuals", "type": "folder", "modifiedOffsetDays": 28, "children": [
+          { "id": "f-ds-lab", "name": "lab-summary-stats.png", "type": "file", "sizeBytes": 392000, "modifiedOffsetDays": 29 }
+        ] }
+      ] },
+      { "id": "f-cy320", "name": "CY-320", "type": "folder", "modifiedOffsetDays": 30, "children": [
+        { "id": "f-cy-syllabus", "name": "CY-320 Syllabus", "type": "folder", "modifiedOffsetDays": 31, "children": [
+          { "id": "f-cy-outline", "name": "cy320-outline.pptx", "type": "file", "sizeBytes": 1420000, "modifiedOffsetDays": 32 }
+        ] },
+        { "id": "f-cy-notes", "name": "CY-320 Lecture Notes", "type": "folder", "modifiedOffsetDays": 33, "children": [
+          { "id": "f-cy-threat", "name": "threat-landscape.pptx", "type": "file", "sizeBytes": 2760000, "modifiedOffsetDays": 34 }
+        ] },
+        { "id": "f-cy-assignments", "name": "CY-320 Assignments", "type": "folder", "modifiedOffsetDays": 35, "children": [
+          { "id": "f-cy-model", "name": "threat-model.pptx", "type": "file", "sizeBytes": 864000, "modifiedOffsetDays": 36 }
+        ] },
+        { "id": "f-cy-labs", "name": "CY-320 Lab Manuals", "type": "folder", "modifiedOffsetDays": 37, "children": [
+          { "id": "f-cy-capture", "name": "packet-capture.jpeg", "type": "file", "sizeBytes": 1120000, "modifiedOffsetDays": 38 }
+        ] }
+      ] },
+      { "id": "f-cl240", "name": "CL-240", "type": "folder", "modifiedOffsetDays": 39, "children": [
+        { "id": "f-cl-syllabus", "name": "CL-240 Syllabus", "type": "folder", "modifiedOffsetDays": 40, "children": [
+          { "id": "f-cl-outline", "name": "cl240-outline.pptx", "type": "file", "sizeBytes": 1380000, "modifiedOffsetDays": 41 }
+        ] },
+        { "id": "f-cl-notes", "name": "CL-240 Lecture Notes", "type": "folder", "modifiedOffsetDays": 42, "children": [
+          { "id": "f-cl-core", "name": "cloud-core-services.pptx", "type": "file", "sizeBytes": 2540000, "modifiedOffsetDays": 43 }
+        ] },
+        { "id": "f-cl-labs", "name": "CL-240 Lab Manuals", "type": "folder", "modifiedOffsetDays": 44, "children": [
+          { "id": "f-cl-cost", "name": "cost-lab.png", "type": "file", "sizeBytes": 540000, "modifiedOffsetDays": 45 }
+        ] },
+        { "id": "f-cl-reference", "name": "CL-240 Reference", "type": "folder", "modifiedOffsetDays": 46, "children": [
+          { "id": "f-cl-devops", "name": "devops-checklist.pptx", "type": "file", "sizeBytes": 760000, "modifiedOffsetDays": 47 }
+        ] }
+      ] }
+    ]
+  },
+  "kpiSeries": [
+    { "weekOffset": 0, "enrolledByTrack": { "Software Engineering": 100, "Data Science": 96, "Cybersecurity": 62, "Cloud & DevOps": 42 }, "attendancePct": 92.0 },
+    { "weekOffset": 1, "enrolledByTrack": { "Software Engineering": 102, "Data Science": 99, "Cybersecurity": 63, "Cloud & DevOps": 43 }, "attendancePct": 90.5 },
+    { "weekOffset": 2, "enrolledByTrack": { "Software Engineering": 103, "Data Science": 101, "Cybersecurity": 64, "Cloud & DevOps": 44 }, "attendancePct": 88.2 },
+    { "weekOffset": 3, "enrolledByTrack": { "Software Engineering": 103, "Data Science": 102, "Cybersecurity": 65, "Cloud & DevOps": 44 }, "attendancePct": 85.4 },
+    { "weekOffset": 4, "enrolledByTrack": { "Software Engineering": 104, "Data Science": 103, "Cybersecurity": 65, "Cloud & DevOps": 45 }, "attendancePct": 83.1 },
+    { "weekOffset": 5, "enrolledByTrack": { "Software Engineering": 105, "Data Science": 104, "Cybersecurity": 66, "Cloud & DevOps": 45 }, "attendancePct": 80.9 },
+    { "weekOffset": 6, "enrolledByTrack": { "Software Engineering": 105, "Data Science": 104, "Cybersecurity": 66, "Cloud & DevOps": 46 }, "attendancePct": 79.4 },
+    { "weekOffset": 7, "enrolledByTrack": { "Software Engineering": 106, "Data Science": 104, "Cybersecurity": 67, "Cloud & DevOps": 46 }, "attendancePct": 77.8 },
+    { "weekOffset": 8, "enrolledByTrack": { "Software Engineering": 106, "Data Science": 105, "Cybersecurity": 67, "Cloud & DevOps": 47 }, "attendancePct": 76.5 },
+    { "weekOffset": 9, "enrolledByTrack": { "Software Engineering": 107, "Data Science": 105, "Cybersecurity": 68, "Cloud & DevOps": 47 }, "attendancePct": 75.2 },
+    { "weekOffset": 10, "enrolledByTrack": { "Software Engineering": 107, "Data Science": 106, "Cybersecurity": 68, "Cloud & DevOps": 47 }, "attendancePct": 73.9 },
+    { "weekOffset": 11, "enrolledByTrack": { "Software Engineering": 108, "Data Science": 106, "Cybersecurity": 69, "Cloud & DevOps": 48 }, "attendancePct": 72.6 }
+  ]
+}

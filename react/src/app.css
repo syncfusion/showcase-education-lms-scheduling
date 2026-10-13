@@ -1,0 +1,454 @@
+/* App styles: semantic tokens from design/tokens.css, plus the component layer.
+   Components consume those tokens; Tailwind supplies layout utilities. */
+
+@import '../../../design/tokens.css';
+@import 'tailwindcss';
+@import './ui/shell/app-shell.css';
+
+/* Base: everything clickable shows the pointer; labels/inset taps >= 44px on touch. */
+@layer base {
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href], summary, label[for] { cursor: pointer; }
+  *:focus-visible { outline: 2px solid var(--color-sf-focus-ring); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sf-font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--color-sf-bg-primary);
+  color: var(--color-sf-fg-primary);
+}
+
+/* Page scaffolding */
+.page { display: flex; flex-direction: column; gap: var(--sf-space-4); padding: var(--sf-space-4); }
+.page-toolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--sf-space-3); flex-wrap: wrap; }
+.page-heading { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 16rem; }
+/* The DropDownList defaults to width 100%, which wraps it under the heading. Keep the filter beside the title. */
+.page-toolbar > .e-input-group { width: 220px; flex: 0 0 220px; max-width: 100%; }
+@media (max-width: 767.98px) {
+  .page-toolbar > .e-input-group { flex-basis: 100%; width: 100%; }
+}
+.page-grid { display: grid; gap: var(--sf-space-4); grid-template-columns: repeat(12, 1fr); padding: var(--sf-space-4); }
+.page-title { font-size: 20px; font-weight: 600; margin: 0; color: var(--color-sf-fg-primary); }
+.page-description { margin: 0; max-width: 62ch; font-size: 13px; line-height: 1.45; color: var(--color-sf-fg-secondary); }
+
+/* Syncfusion Card as KPI surface — icon square top-right aligned to the title line. */
+.kpi-grid {
+  display: grid;
+  gap: var(--sf-space-4);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1023.98px) { .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767.98px)  { .kpi-grid { grid-template-columns: 1fr; } }
+
+.kpi-card { all: unset; display: block; }
+.kpi-card:focus-visible { outline: 2px solid var(--app-kpi-focus-ring); outline-offset: 2px; }
+.kpi-card > .kpi-card-surface.kpi-band-good,
+.kpi-card > .kpi-card-surface.kpi-band-watch,
+.kpi-card > .kpi-card-surface.kpi-band-bad {
+  min-height: var(--app-kpi-min-height);
+  background: var(--app-kpi-bg);
+  border: 1px solid var(--app-card-border);
+  box-shadow: var(--app-card-shadow);
+}
+.kpi-card-active > .kpi-card-surface, .kpi-card-active .e-card {
+  border-color: var(--color-sf-border-brand);
+  box-shadow: 0 0 0 2px var(--color-sf-fg-brand-primary);
+}
+.kpi-card-content { position: relative; padding: var(--app-kpi-content-inset-block) var(--app-kpi-content-inset-inline); display: flex; flex-direction: column; gap: var(--sf-space-1); min-height: var(--app-kpi-min-height); }
+.kpi-label { font-size: 13px; color: var(--color-sf-fg-secondary); font-weight: 500; }
+.kpi-value { font-size: 26px; font-weight: 700; color: var(--color-sf-fg-primary); line-height: 1.1; }
+.kpi-note { font-size: 12px; color: var(--color-sf-fg-secondary); }
+.kpi-icon {
+  position: absolute; top: var(--app-kpi-icon-title-offset); right: var(--app-kpi-icon-inset-inline);
+  width: var(--app-kpi-icon-size); height: var(--app-kpi-icon-size);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--sf-radius-sm);
+}
+.kpi-icon-good    { background: var(--color-sf-bg-success-primary); color: var(--color-sf-fg-success-primary); }
+.kpi-icon-watch   { background: var(--color-sf-bg-warning-primary); color: var(--color-sf-fg-warning-primary); }
+.kpi-icon-bad     { background: var(--color-sf-bg-danger-primary);  color: var(--color-sf-fg-danger-primary); }
+.kpi-band-bad .e-card { border-inline-start: 3px solid var(--color-sf-fg-danger-primary); }
+.kpi-band-watch .e-card { border-inline-start: 3px solid var(--color-sf-fg-warning-primary); }
+
+/* Chart/list tiles inside DashboardLayout */
+/* Chart/list tiles — two per row: charts side by side, then chart + list */
+.app-tile-grid {
+  display: grid;
+  gap: var(--sf-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 1023.98px) { .app-tile-grid { grid-template-columns: 1fr; } }
+.app-tile-grid .app-tile { min-height: 340px; }
+.app-tile-grid .app-tile .app-chart { max-width: 100%; }
+
+.app-tile {
+  background: var(--app-card-bg);
+  border: 1px solid var(--app-card-border);
+  border-radius: var(--sf-radius-lg);
+  box-shadow: var(--app-card-shadow);
+  padding: var(--sf-space-3);
+  display: flex; flex-direction: column; gap: var(--sf-space-2);
+  min-height: 320px;
+}
+.app-tile-title { font-size: 14px; font-weight: 600; margin: 0; color: var(--color-sf-fg-primary); }
+.app-tile-title small { color: var(--color-sf-fg-secondary); font-weight: 400; }
+.app-tile-list .e-list-item { border-bottom: 1px solid var(--color-sf-border-primary); }
+.app-tile-list .e-list-item .e-list-text { font-size: 13px; font-weight: 500; color: var(--color-sf-fg-primary); line-height: 1.35; }
+.app-tile-list .e-list-item .e-list-text small,
+.app-tile-list .e-list-item .e-list-subtext {
+  display: block; font-size: 11px; font-weight: 400; color: var(--color-sf-fg-secondary); text-transform: capitalize;
+}
+.app-tile .e-control { flex: 1; min-height: 240px; }
+.app-chart, .app-chart svg { height: 100%; }
+
+/* Dashboard Layout owns tile size. The card chrome sits on the panel; the chart fills the content. */
+.page-dashboard .e-dashboardlayout.e-control { width: 100%; }
+.page-dashboard .e-dashboardlayout.e-control .e-panel.app-tile {
+  box-sizing: border-box;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.page-dashboard .e-dashboardlayout .e-panel-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.page-dashboard .e-dashboardlayout .e-panel-content {
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sf-space-2);
+  padding: var(--sf-space-3);
+  overflow: hidden;
+}
+.page-dashboard .e-dashboardlayout .app-tile .e-control {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+.page-dashboard .app-tile-drag { cursor: grab; }
+.page-dashboard .app-tile-list .app-tile-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.page-dashboard .app-tile-list .app-tile-title small { display: block; font-size: 12px; }
+.page-dashboard .app-tile-list .e-listview {
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+  border: 0;
+}
+
+/* Content & Materials is one File Manager. Pin the folder tree so activity names stay readable. */
+.page-content .content-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+.page-content .content-card .e-card-header { flex: none; }
+.page-content .content-card .e-card-sub-title {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.page-content .content-card-body {
+  display: flex; flex-direction: column; gap: var(--sf-space-2);
+  height: 640px; min-height: 0;
+}
+.page-content .content-control { flex: 1; min-height: 0; min-width: 0; }
+.page-content .content-control > .e-control { height: 100%; min-height: 0; width: 100%; }
+.content-skeleton { height: 640px; }
+
+/* File Manager sets the tree to 25% and will not shrink the file pane below 270px.
+   Wide screens pin the tree. Below 768px the tree is hidden, and the empty
+   splitter pane must stay collapsed or it clips the file list. */
+.page-content .content-card-files .e-filemanager { width: 100%; max-width: 100%; }
+.page-content .content-card-files .e-filemanager .e-layout-content.e-pane {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .page-content .content-card-files .e-filemanager .e-navigation.e-pane {
+    flex: 0 0 240px !important;
+    min-width: 220px !important;
+    max-width: 280px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .page-content .content-card .e-card-header {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .page-content .content-card .e-card-header-caption {
+    min-width: 0;
+  }
+  .page-content .content-card .e-card-header-caption .e-card-header-title,
+  .page-content .content-card .e-card-header-caption .e-card-sub-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    height: auto;
+    max-width: 100%;
+  }
+  .page-content .content-card-files .e-filemanager .e-navigation.e-pane,
+  .page-content .content-card-files .e-filemanager .e-split-bar {
+    flex: 0 0 0 !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .page-content .content-card-files .e-filemanager .e-layout-content.e-pane {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Breadcrumb width is the row minus the search box's offsetWidth. A 200px search
+     collapses the path to "...". Keep that offset at 0 and draw the field on the next row. */
+  .page-content .content-card-files .e-filemanager .e-address {
+    height: 96px;
+  }
+  .page-content .content-card-files .e-filemanager .e-address .e-search-wrap {
+    position: static;
+    float: none;
+    width: 0;
+    min-width: 0;
+    height: 0;
+    padding: 0;
+    overflow: visible;
+  }
+  .page-content .content-card-files .e-filemanager .e-address .e-search-wrap .e-input-group {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 52px;
+    width: auto;
+  }
+  .page-content .content-card-files .e-filemanager .e-address .e-addressbar-ul {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding-right: 12px;
+  }
+}
+
+/* Header actions */
+.app-header-title {
+  display: inline-flex; align-items: center; gap: var(--sf-space-3);
+  min-width: 0; max-width: 100%;
+}
+.app-header-actions { display: flex; gap: var(--sf-space-2); align-items: center; flex: none; }
+.app-header-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: var(--color-sf-bg-surface); color: var(--color-sf-fg-primary);
+  border: 1px solid var(--color-sf-border-primary);
+  border-radius: var(--sf-radius-sm);
+  padding: 6px 10px; font: inherit; font-size: 13px;
+  min-height: 36px; min-width: 36px; white-space: nowrap; flex: none;
+}
+/* One bordered control: the reset action and the info icon share the chrome.
+   The tooltip host must stay in the flex row or the info icon drops below the label. */
+.app-header-reset {
+  display: inline-flex; align-items: stretch; flex: none;
+  border: 1px solid var(--color-sf-border-primary);
+  border-radius: var(--sf-radius-sm);
+  background: var(--color-sf-bg-surface);
+}
+.app-header-reset .app-header-button {
+  border: 0; background: transparent; border-radius: 0;
+}
+.app-header-reset-info {
+  padding: 6px; color: var(--color-sf-fg-secondary);
+  border-left: 1px solid var(--color-sf-border-primary);
+}
+.app-header-reset .app-header-button:hover:not(:disabled) { background: var(--color-sf-bg-surface-hover); }
+.app-header-reset .app-header-button:focus-visible {
+  outline: 2px solid var(--app-focus-ring); outline-offset: -2px; z-index: 1;
+}
+.e-tooltip-wrap.app-header-reset-tip { max-width: min(220px, calc(100vw - 24px)); }
+.e-tooltip-wrap.app-header-reset-tip .e-tip-content {
+  white-space: normal; line-height: 1.4; text-align: start;
+}
+/* The reset label needs the full button on tablet and desktop. On a phone it wraps
+   onto the theme toggle, so the control stays icon-only and keeps its accessible name. */
+@media (max-width: 767.98px) {
+  .app-header-reset-label { display: none; }
+  .app-header-button { padding: 6px; }
+  .app-shell-header { padding: 0 12px; gap: 8px; }
+}
+.app-header-button:hover:not(:disabled) { background: var(--color-sf-bg-surface-hover); border-color: var(--color-sf-border-strong); }
+.app-header-button:active:not(:disabled) { background: var(--color-sf-bg-brand-subtle); }
+
+/* Skeleton tiles */
+.page-kpi-skeleton { height: 136px; grid-column: span 3; }
+.page-tile-skeleton { height: 320px; grid-column: span 6; }
+@media (max-width: 1023.98px) { .page-kpi-skeleton { grid-column: span 6; } .page-tile-skeleton { grid-column: span 12; } }
+
+/* Grid column templates (Students roster) */
+.grid-badge-progress { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+.grid-progress-track {
+  flex: 1; height: 6px; border-radius: 999px; overflow: hidden;
+  background: var(--color-sf-border-primary);
+  display: inline-block; position: relative;
+}
+.grid-progress-fill { display: block; height: 100%; border-radius: 999px; }
+.grid-band-good .grid-progress-fill { background: var(--color-sf-fg-success-secondary); }
+.grid-band-watch .grid-progress-fill { background: var(--color-sf-fg-warning-primary); }
+.grid-band-bad .grid-progress-fill { background: var(--color-sf-fg-danger-primary); }
+.grid-band-neutral .grid-progress-fill { background: var(--color-sf-fg-secondary); }
+.grid-progress-value { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--color-sf-fg-primary); min-width: 42px; text-align: right; }
+
+/* Syncfusion Progress bar cells (Students roster) */
+.grid-progressbar { flex: 1; min-width: 90px; }
+.grid-progressbar .e-progressbar { height: 6px; }
+.grid-progress-track { display: none; }
+.grid-badge-progress .grid-progress-value { min-width: 48px; }
+
+.grid-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; line-height: 1;
+  padding: 4px 10px; border-radius: 999px; border: 1px solid transparent;
+}
+.grid-chip::before { content: ''; width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+.grid-chip-enrolled { color: var(--color-sf-fg-success-primary); background: var(--color-sf-bg-success-secondary); border-color: var(--color-sf-bg-success-secondary); }
+.grid-chip-at-risk { color: var(--color-sf-fg-warning-primary); background: var(--color-sf-bg-warning-secondary); border-color: var(--color-sf-bg-warning-secondary); }
+.grid-chip-withdrawn { color: var(--color-sf-fg-secondary); background: var(--color-sf-bg-secondary); border-color: var(--color-sf-border-primary); }
+
+/* Skeletons matching real page layouts */
+.page-title-skeleton { width: 220px; height: 26px; }
+.page-description-skeleton { width: min(420px, 100%); height: 14px; }
+.page-kpi-skeleton-static { height: 136px; }   /* same height as real KPI cards */
+.page-tile-skeleton-static { height: 320px; min-height: 0; } /* same as app-tile */
+.tile-grid-skeleton { display: grid; gap: var(--sf-space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 767.98px) { .tile-grid-skeleton { grid-template-columns: 1fr; } }
+.grid-skeleton { display: flex; flex-direction: column; gap: var(--sf-space-2); }
+.grid-skeleton-header {
+  display: flex; gap: var(--sf-space-3); padding: var(--sf-space-2) var(--sf-space-3);
+  border-block: 1px solid var(--color-sf-border-primary);
+}
+.grid-skeleton-row { display: flex; gap: var(--sf-space-3); padding: var(--sf-space-2) var(--sf-space-3); }
+.grid-skeleton-cell { flex: 1; height: 14px; }
+.page-toolbar .e-skeleton.e-skeleton-text { margin: 0; }
+.e-skeleton { --ejs-skeleton-border-radius: 8px; }
+
+/* Schedule/Plan page skeletons */
+.schedule-skeleton-cell { flex: 1; height: 48px; }
+.gantt-skeleton-label { width: 140px; height: 14px; flex: none; }
+.gantt-skeleton-bar { flex: 1; height: 18px; max-width: 260px; }
+.grid-skeleton-row { align-items: center; }
+
+/* Visual helpers */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  clip: rect(0 0 0 0); clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+
+/* Dashboard "This week" agenda */
+.week-glance.e-listview .e-list-group-item {
+  padding: 8px 4px 2px;
+  height: auto;
+  min-height: 0;
+  background: transparent;
+  border: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-sf-fg-secondary);
+}
+.week-glance-day { line-height: 1.2; }
+.week-glance.e-listview .e-list-item {
+  height: auto;
+  min-height: 44px;
+  padding-inline: 4px;
+}
+.week-glance.e-listview .e-text-content,
+.week-glance.e-listview .e-list-text {
+  height: auto;
+  width: 100%;
+  overflow: visible;
+  white-space: normal;
+}
+.week-glance.e-listview .week-glance-item {
+  display: grid;
+  grid-template-columns: 8.75rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  line-height: 1.3;
+}
+.week-glance-time {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-sf-fg-secondary);
+  white-space: nowrap;
+}
+.week-glance.e-listview .week-glance-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.week-glance-title {
+  font-size: 13px; font-weight: 600; color: var(--color-sf-fg-primary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.week-glance-meta {
+  font-size: 11px; font-weight: 400; color: var(--color-sf-fg-secondary);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.week-glance-chip {
+  font-size: 11px; font-weight: 600; line-height: 1;
+  padding: 4px 8px; border-radius: 999px; white-space: nowrap;
+}
+.week-glance-chip-lecture { color: var(--color-sf-fg-success-primary); background: var(--color-sf-bg-success-secondary); }
+.week-glance-chip-lab { color: var(--color-sf-fg-warning-primary); background: var(--color-sf-bg-warning-secondary); }
+.week-glance-chip-seminar { color: var(--color-sf-fg-info-primary); background: var(--color-sf-bg-info-primary); }
+.week-glance-chip-office-hours { color: var(--color-sf-fg-secondary); background: var(--color-sf-bg-secondary); }
+@media (max-width: 767.98px) {
+  .week-glance.e-listview .week-glance-item { grid-template-columns: minmax(0, 1fr) auto; }
+  .week-glance.e-listview .week-glance-time { grid-column: 1 / -1; }
+}
+
+/* AI drawer + FAB */
+.ai-fab {
+  position: fixed; right: var(--sf-space-5); bottom: var(--sf-space-5);
+  z-index: 1200;
+  width: 48px; height: 48px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-sf-fg-brand-primary); color: #fff;
+  border: none; box-shadow: var(--sf-shadow-sm);
+}
+.ai-fab:hover { filter: brightness(1.1); }
+.ai-fab-busy { outline: 2px solid var(--color-sf-fg-warning-primary); }
+.ai-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: min(420px, 92vw);
+  z-index: 1190;
+  background: var(--color-sf-bg-surface);
+  border-left: 1px solid var(--color-sf-border-primary);
+  box-shadow: var(--sf-shadow-sm);
+  display: flex; flex-direction: column;
+}
+.ai-drawer-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: var(--sf-space-3) var(--sf-space-4);
+  border-bottom: 1px solid var(--color-sf-border-primary);
+  font-size: 13px; font-weight: 600; color: var(--color-sf-fg-primary);
+  gap: var(--sf-space-2);
+}
+.ai-drawer-head > div { display: flex; gap: var(--sf-space-2); }
+.ai-drawer-note { font-size: 11px; color: var(--color-sf-fg-secondary); padding: 0 var(--sf-space-2) var(--sf-space-2); display: block; }
+.ai-drawer .e-aiassistview { flex: 1 1 0; min-height: 0; }
+/* The assist view's internal panes must shrink too, or long responses push the
+   footer toolbar past the drawer's bottom edge. */
+.ai-drawer .e-aiassistview .e-view-content { flex: 1 1 0; min-height: 0; }
+.ai-drawer .e-aiassistview .e-views { flex: 1 1 0; min-height: 0; }
+
+/* Footnotes */
+.app-footnote { font-size: 12px; color: var(--color-sf-fg-secondary); margin: 0; }
+
+/* Gantt/schedule_pages heights */
+.app-schedule, .app-gantt, .app-grid, .app-rte, .app-filemanager { min-height: 480px; }
+
+/* Progress-bar tooltip (Students grid) */
+.grid-progress-tooltip { max-width: 220px; }

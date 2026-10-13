@@ -1,0 +1,41 @@
+{
+  "name": "education-lms-scheduling-react",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@syncfusion/ej2-popups": "35.1.37",
+    "@syncfusion/ej2-progressbar": "35.1.37",
+    "@syncfusion/ej2-react-charts": "35.1.37",
+    "@syncfusion/ej2-react-dropdowns": "35.1.37",
+    "@syncfusion/ej2-react-filemanager": "35.1.37",
+    "@syncfusion/ej2-react-gantt": "35.1.37",
+    "@syncfusion/ej2-react-grids": "35.1.37",
+    "@syncfusion/ej2-react-interactive-chat": "35.1.37",
+    "@syncfusion/ej2-react-layouts": "35.1.37",
+    "@syncfusion/ej2-react-lists": "35.1.37",
+    "@syncfusion/ej2-react-navigations": "35.1.37",
+    "@syncfusion/ej2-react-notifications": "35.1.37",
+    "@syncfusion/ej2-react-popups": "35.1.37",
+    "@syncfusion/ej2-react-schedule": "35.1.37",
+    "@syncfusion/ej2-tailwind3-theme": "35.1.37",
+    "lucide-react": "0.554.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-router-dom": "7.9.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "@vitejs/plugin-react": "6.1.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.0"
+  }
+}
